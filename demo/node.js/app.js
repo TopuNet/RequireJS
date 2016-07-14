@@ -121,6 +121,12 @@ app.locals.MobileMask = function(str, mask, length) {
  */
 app.locals.ImageDomain = config.ImageDomain;
 
+/*
+ * 高京
+ * js版本号
+ */
+app.locals.js_version = config.js_version;
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

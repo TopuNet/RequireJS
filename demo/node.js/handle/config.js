@@ -21,6 +21,8 @@ exports.port = 80; //端口号
 exports.sendhost = "business.51icb.com"; //发送邮件接口调用主机地址(网上)
 exports.sendport = 80; //端口号
 
+exports.js_version = "0714"; // JS版本号，MMdd
+
 
 // exports.cookieName_Member = "TouRongQuan2015_Member"; //登录用的cookie名称
 // exports.cookies_key = [2, 5, 6, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 22, 25, 29]; //从cookies中取出密码的16位秘钥数组(内部值不能大于32,且从小到大排序)
@@ -33,32 +35,32 @@ exports.ImageDomain = "http://www.51icb.com/b/"; //数据库中读取的图片�
  *@ 20160301
  *@ 页面公用绑定参数，更新方法：config.GetCommon(callback_success)
  */
-exports.Common={
-    seo:null
-    , footer: null
-    ,menu:null
-}
-/*
- *@ 陈斌
- *@ 20160301
- *@ 【同步】获得页面公用参数
- *@ ieTitle_ex：不为空时，config.Common.seo返回ieTitle_ex - config.seo.ieTitle；否则config.Common.seo返回config.seo.ieTitle
- *@ seoKeywords：不为空时config.Common.seo返回seoKeywords；否则config.Common.seo返回config.seo.seoKeywords
- *@ seoDescription：不为空时config.Common.seo返回seoDescription；否则config.Common.seo返回config.seo.seoDescription
- *@ menu:菜单栏高亮显示的部分,默认为首页高亮
- */
-exports.GetCommon = function (ieTitle_ex, seoKeywords, seoDescription, menu) {
-    
+exports.Common = {
+        seo: null,
+        footer: null,
+        menu: null
+    }
+    /*
+     *@ 陈斌
+     *@ 20160301
+     *@ 【同步】获得页面公用参数
+     *@ ieTitle_ex：不为空时，config.Common.seo返回ieTitle_ex - config.seo.ieTitle；否则config.Common.seo返回config.seo.ieTitle
+     *@ seoKeywords：不为空时config.Common.seo返回seoKeywords；否则config.Common.seo返回config.seo.seoKeywords
+     *@ seoDescription：不为空时config.Common.seo返回seoDescription；否则config.Common.seo返回config.seo.seoDescription
+     *@ menu:菜单栏高亮显示的部分,默认为首页高亮
+     */
+exports.GetCommon = function(ieTitle_ex, seoKeywords, seoDescription, menu) {
+
     var arr = [config.Common.seo, config.Common.footer, config.Common.menu];
-    arr[0]=config.Common.seo =config.getSEO(ieTitle_ex, seoKeywords, seoDescription);
+    arr[0] = config.Common.seo = config.getSEO(ieTitle_ex, seoKeywords, seoDescription);
     arr[1] = config.Common.footer = config.footer;
-    if (menu == null||menu=="") {
+    if (menu == null || menu == "") {
         menu = 1;
     }
-    arr[2] = config.Common.menu =menu;
+    arr[2] = config.Common.menu = menu;
     return arr;
 }
-    
+
 
 
 
@@ -183,9 +185,11 @@ exports.updateSEO = function(callback_success) {
  *@ footer缓存，异步更新方法：config.updateFooter(callback_success)
  */
 exports.footer = {
-    channel: null    //购买渠道
-    , WeChat: null   //微信
-    , weibo: null    //5-新浪微博
+    channel: null //购买渠道
+        ,
+    WeChat: null //微信
+        ,
+    weibo: null //5-新浪微博
 };
 
 
@@ -194,25 +198,25 @@ exports.footer = {
  *@ 20150229
  *@ 【异步】更新footer缓存
  */
-exports.updateFooter = function (callback_success) {
+exports.updateFooter = function(callback_success) {
     var n = 0;
     var _i;
 
-    var updating = function () {
+    var updating = function() {
         if (++n < 2)
             return;
         callback_success();
     };
 
-    var updateFooter_Article = function () {
-       
+    var updateFooter_Article = function() {
+
         var Json_Params = func.JsonUnicode({
             "s_Aid": "",
             "s_Alive": "1",
             "s_d1": "",
             "s_d2": "",
             "s_Keywords": "",
-            "s_Kind":"52",
+            "s_Kind": "52",
             "s_Order": ""
         });
         var Json_Pages = func.JsonUnicode({
@@ -232,25 +236,25 @@ exports.updateFooter = function (callback_success) {
             "p_Tp": ""
         });
 
-      
+
         var ParamsJsonObj_str = JSON.stringify(Json_Params);
         var ParamsJsonObj = JSON.parse(ParamsJsonObj_str);
         //生成签名
-        func.CreateTopuSignature(ParamsJsonObj, function (sign_valid) {
+        func.CreateTopuSignature(ParamsJsonObj, function(sign_valid) {
             var ajax_para_str = "{ \"params\": " + JSON.stringify(func.JsonEscape(Json_Params)) + ", \"pages\": " + JSON.stringify(func.JsonEscape(Json_Pages)) + " , \"sign_valid\": " + sign_valid + " }";
 
             var ajax_para = JSON.parse(ajax_para_str);
             //调用接口
-            func.DoREST(config.host, config.port, "/Handler/Article.ashx?act=select_list" + "&r=" + Math.random(), "POST", ajax_para, function (data) {
+            func.DoREST(config.host, config.port, "/Handler/Article.ashx?act=select_list" + "&r=" + Math.random(), "POST", ajax_para, function(data) {
                 if (data.error == "SUCCESS" || data.error == "success") {
-                   
+
                     config.footer.channel = data.list;
 
                 } else {
                     console.log("\n updateFooter_Article:" + JSON.stringify(data));
                 }
                 updating();
-            }, function (e) {
+            }, function(e) {
                 console.log("\n updateFooter_Article_e:" + e);
                 updating();
             });
@@ -259,14 +263,14 @@ exports.updateFooter = function (callback_success) {
     };
 
 
-    var updateFooter_Advertise = function () {
+    var updateFooter_Advertise = function() {
 
         if (config.footer.Rcode != null) {
             updating();
             return;
         }
 
-        config.updateAdvertise(function () {
+        config.updateAdvertise(function() {
             config.footer.WeChat = config.Advertise[3].Pic1;
             config.footer.weibo = config.Advertise[4].Url;
             updating();
@@ -372,4 +376,3 @@ exports.updateAdvertise = function(callback_success) {
  *@ Info
  */
 exports.Info = null; //(Info)
-

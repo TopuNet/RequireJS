@@ -1,8 +1,18 @@
-# RequireJS 开发及部署试验 v1.0.1
+# RequireJS 开发及部署试验 v1.0.2
 ###RequireJS 开发及部署试验
 
 更新日志：
 -------------
+
+v1.0.2
+
+    解决之前版本的入口文件main.js的缓存问题：
+
+    		1) 后端渲染页面时，需要给data-main增加地址栏参数。如：
+    		<script data-main="/widget/main.js?v=0714" src="/inc/require.js" id="script_page" page="index"></script>
+
+    		2) 0714可在后端做全局变量，方便全局修改。
+    		如demo中，在 /handle/config中定义全局变量js_version，然后在app.js中将/handle/config.js_version赋值给app.locals.js_version，供视图使用。
 
 v1.0.1
 
@@ -24,16 +34,17 @@ v1.0.1
 
 1. 页面底端引用：
 
-		<script data-main="/widget/main" src="/inc/require.js" id="script_page" page="index"></script>。
+		<script data-main="/widget/main.js?v=0714" src="/inc/require.js" id="script_page" page="index"></script>
 
 		其中，page值需要修改为配套js（/widget/app/）的文件名称，最好和页面名称一致。
 		除page外，其他值不用修改。
-		data-main中的值“/widget/main[.js]”为js入口页。
+		data-main中的值“/widget/main.js”为js入口页，版本号可以在后端定义全局变量后由后端渲染。
+
 
 2. 修改/widget/main.js：
     
 	    requirejs.config({
-	        // 配置文件，具体见官方文档：
+	        // 配置文件，具体见官方文档：http://www.requirejs.cn/docs/api.html
 	        // 非AMD规范文件 或 CDN引用文件 可在此配置shim
 	    });
 
@@ -78,7 +89,7 @@ v1.0.1
 		执行完成后，将会生成打包文件：/widget/aio.js
 
     	2) 返回到根目录执行：fis3 release [pub] -d ../output
-        pub为可选项，本地release测试不要pub，本地测试完成、上线前release需要。区别为静态资源是否带域名前缀（利于优化和便于CDN），域名前缀在fis-conf.js中修改。
+        pub为可选项，本地release测试不要pub，本地测试完成、上线前release需要。区别为静态资源是否带域名前缀（利于优化和便于CDN）和是否对js和css文件进行压缩，域名前缀在fis-conf.js中修改。
         release后，/widget/中只有两个文件，main.js 和 aio_hash.js。
 
     	3) 需要手动将main.js中的：
