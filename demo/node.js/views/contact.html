@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include comm/head.html%>
+        <link href="/css/contact.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="contact">
+    <!--页面头部结构-->
+    <%include comm/top.html%>
+        <!--头部导航-->
+        <section class="html_top_nav">
+            <section class="auto">
+                <span>联系我们</span>
+                <p><a href="/">首页</a> &gt; 联系我们</p>
+            </section>
+        </section>
+        <section class="content_map">
+            <div class="left_box">
+                <div class="title">北京元吉科技有限公司</div>
+                <p>地址：北京市东城区银河SOHO办公楼B座8层20808室</p>
+                <p>邮编：100000</p>
+                <div class="imgbox">
+                    <img src="/images/contact.png">
+                </div>
+            </div>
+            <div class="right_box">
+                <div class="box" id="baidu_map"></div>
+            </div>
+        </section>
+        <!--页面底部foot样式结构-->
+        <%include comm/footer.html%>
+            <script data-main="/widget/main" src="/inc/require.js" id="script_page" page="contact"></script>
+</body>
+
+</html>

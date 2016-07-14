@@ -1,0 +1,168 @@
+/*
+	马升苑
+	20160426
+	关于我们
+ */
+
+@import "common.less";
+
+// 关于我们 banner圆点动画
+@keyframes about_selected{
+	0% {
+	width: 10px;
+	}
+	100% {
+	width: 30px;
+	}
+}
+
+body.about_us {
+	section.about_top {
+		min-width: @content_width;
+		background: @color_fff;
+		section.auto {
+			width: @content_width;
+			margin: 0 auto;
+			padding-top: 24px;
+			padding-bottom: 34px;
+			.about_top_lef {
+				width: 670px;
+				height: 330px;
+				float: left;
+				overflow: hidden;
+				position: relative;
+				.arrow{
+					position: absolute;
+					top: 136px;
+					width: 40px;
+					height: 60px;
+				}
+				.arrow_right{
+					.bp(-40px,0px,'_ma');
+					right: 0px;
+					cursor: pointer;
+				}
+				.arrow_left{
+					.bp(0,0,'_ma');
+					left: 0px;
+					cursor: pointer;
+				}
+				.pic_ul{
+					position: absolute;
+					overflow: hidden;
+					width: 100%;
+					top: 0px;
+					left: 0;
+					height: 330px;
+					li{
+						float: left;
+						width: 100%;
+						height: 330px;
+					}
+					.about01{
+						background-image: url(/images/about01.png);
+					}
+					.about02{
+						background-image: url(/images/about02.png);
+					}
+					.about03{
+						background-image: url(/images/about03.png);
+					}
+				}
+				.point_ul{
+					position: absolute;
+					left: 50%;
+					margin-left: -30px;
+					bottom: 20px;
+					width: 100px;
+					height: 10px;
+					li{
+						float: left;
+						background-color: #fff;
+						border-radius: 5px;
+						overflow: hidden;
+						width: 10px;
+						margin: 5px;
+						height: 10px;
+						cursor: pointer;
+						transition: width 0.5s;
+					}
+					.selected{
+						width: 30px;
+						transition: width 0.5s;
+					}
+				}
+			}
+			div.about_top_rig {
+				width: 440px;
+				float: right;
+				margin-right: 40px;
+				margin-top: 50px;
+				line-height: 36px;
+				h3 {
+					font-size: 18px;
+					color: @bg_licolor;
+					margin-bottom: 20px;
+				}
+				p {
+					line-height: 32px;
+				}
+			} 
+			&:after {
+				.clear();
+			}
+		}
+	}
+	section.about_middle{
+		background-color: @bg_gray;
+		min-width: @content_width;
+		padding-bottom: 72px;
+		padding-top: 48px;
+		.auto {
+			width: 1160px;
+			margin: 0 auto;
+			position: relative;
+			overflow: hidden;
+			.title_bar{
+				width: 100%;
+				height: 30px;
+				margin-bottom: 66px;
+				span {
+				    width: 370px;
+				    height: 15px;
+				    border-bottom: 1px dashed #a7a3a1;
+				    float: left;
+				}
+				p {
+				    width: 420px;
+				    height: 30px;
+				    font-size: 18px;
+				    color: #475168;
+				    line-height: 30px;
+				    text-align: center;
+				    float: left;
+				}
+		            }
+		            .block{
+		            	float: left;
+		            	overflow: hidden;
+		            	text-align: center;
+		            	width: 386px;
+		            	.imgbox{
+		            		width: 198px;
+		            		height: 198px;
+		            		border-radius: 99px;
+		            		overflow: hidden;
+		            		margin: 0 auto;
+		            	}
+		            	.title{
+		            		color: #ff6c60;
+		            		line-height: 84px;
+		            	}
+		            	.text{
+		            		line-height: 28px;
+		            	}
+		            }
+	        	}
+	}
+}

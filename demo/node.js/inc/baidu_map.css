@@ -1,0 +1,12 @@
+/* 
+	高京
+	2016-05-11
+	百度地图部分样式重写（和公司通用样式有冲突）
+*/
+
+div.BMap_bubble_content span,div.BMap_bubble_content a{
+	font-size:12px!important;
+}
+div.BMap_bubble_content span img{
+	display: inline!important;
+}

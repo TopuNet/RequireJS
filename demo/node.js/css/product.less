@@ -1,0 +1,56 @@
+/*
+	马升苑
+	20160426
+	关于我们
+ */
+
+@import "common.less";
+
+body.product{
+	min-width: @content_width;
+	section.product_banner{
+		height: 549px;
+		background: no-repeat center url(/images/product_banner.png);
+	}
+	section.cont{
+		width: 1160px;
+		margin: 0 auto;
+		padding: 80px 0px 80px;
+		.text{
+			text-align: center;
+			font-size: 16px;
+			color: #736f6e;
+			line-height: 30px;
+		}
+		.title{
+			text-align: center;
+			font-size: 20px;
+			color: #736f6e;
+			line-height: 50px;
+		}
+		.blockbox{
+			overflow: hidden;
+			padding: 80px 0px 70px;
+			.block{
+				margin: 0px 20px 0px 100px;
+				border:#c0c0c0 1px solid;
+				border-radius: 3px;
+				float: left;
+				img{
+					margin: 5px;
+					width: 225px;
+				}
+			}
+		}
+		.join{
+			.bp(-250px,10px,'_ma');
+			height: 90px;
+			display: block;
+			width: 206px;
+			margin: 0 auto;
+			&:hover{
+				.bp(-500px,10px,'_ma');
+			}
+		}
+	}
+}

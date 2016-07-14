@@ -1,0 +1,219 @@
+/*
+	白梦超
+	20160421
+ */
+
+@import "common.less";
+
+//头部公共样式
+section.html_top{
+	position: relative;
+	min-width: @content_width;
+	height: 155px;
+	background: @color_fff;
+	section.top_top {
+		min-width: @content_width;
+		background: @bg_licolor_hover;
+		height: 46px;
+		div {
+			width: @content_width;
+			margin: 0 auto;
+			a {
+				width: 84px;
+				height: 22px;
+				float: right;
+				margin-top: 10px;
+				margin-right: 12px;
+				font-size: 13px;
+				line-height: 22px;
+				text-align: center;
+				border: 1px solid @color_fff;
+				.border-radius(5px);
+				color: @color_fff;
+				&:hover{
+					border: 1px solid @color_fff;
+					.border-radius(5px);
+					background: @color_fff;
+					color: @bg_licolor_hover;
+				}
+			}
+
+		}
+	}
+	section.top {
+		width: @content_width;
+		margin: 0 auto;
+		img {
+			float: left;
+		}
+		p {
+			width: 840px;
+			height: 39px;
+			line-height: 39px;
+			font-size: 15px;
+			float: right;
+			margin-top: 35px;
+			a {
+				width: 120px;
+				height: 39px;
+				text-align: center;
+				float: left;
+				word-spacing:4px;
+				&:hover {
+					color: @bg_licolor_hover;
+				}
+			}
+			a.on {
+				background: @bg_top_color;
+				border-radius: 10px;
+				color: @color_fff;
+			}
+		}
+	}
+}
+
+//顶部导航条
+section.html_top_nav {
+	min-width: @content_width;
+	background: @bg_foot;
+	height: 71px;
+	margin-bottom: 4px;
+	section.auto {
+		width: @content_width;
+		margin: 0 auto;
+		height: 70px;
+		line-height: 70px;
+		font-size: 18px;
+		span {
+			width: 200px;
+			float: left;
+			color: @color_fff;
+		}
+		p {
+			width: 600px;
+			float: right;
+			text-align: right;
+			color: @color_fff;
+			a {
+				color: @color_fff;
+				&:hover {
+					color: @bg_licolor_hover; 
+				}
+			}
+		}
+	}
+}
+
+//  页面底部foot样式
+section.html_foot {
+	min-width: @content_width;
+	background: @bg_foot;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	section.auto {
+		width: 860px;
+		margin: 0 auto;
+		position: relative;
+		ul {
+			height: 46px;
+			width: 100%;
+			text-align: center;
+			li {
+				width: 46px;
+				height: 46px;
+				float: left;
+			}
+			li.li_1 {
+				.bp(-1045px; 11px; @xuebi_bai);
+				margin-left: 302px;
+				background-color: @bg_licolor;
+				&:hover {
+					background-color: @bg_licolor_hover;
+					transition: background-color 0.5s;
+				}
+			}
+			li#li_2 {
+				.bp(-1081px; 11px; @xuebi_bai);
+				background-color: @bg_licolor;
+				margin-left: 20px;
+				position: relative;
+				cursor: pointer;
+				&:hover {
+					background-color: @bg_licolor_hover;
+					transition: background-color 0.5s;
+				}
+			}
+			li.li_3 {
+				.bp(-1122px; 11px; @xuebi_bai);
+				background-color: @bg_licolor;
+				margin-left: 20px;
+				&:hover {
+					background-color: @bg_licolor_hover;
+					transition: background-color 0.5s;
+				}
+			}
+			li.li_4 {
+				.bp(-1161px; 11px; @xuebi_bai);
+				margin-left: 20px;
+				background-color: @bg_licolor;
+				&:hover {
+					background-color: @bg_licolor_hover;
+					transition: background-color 0.5s;
+				}
+			}
+		}
+		p {
+			height: 57px;
+			width: 100%;
+			border-top: 1px solid @foot_linecolor;
+			font-size: 13px;
+			line-height: 57px;
+			color: @color_fff;
+			margin-top: 35px;
+			span.left {
+				width: 50%;
+				float: left;
+				text-align: left;
+			}
+			span.right {
+				width: 50%;
+				float: left;
+				text-align: right;
+			}
+		}
+	}
+}
+//页面底部二维码
+section.twodcode{
+	position: relative;
+	z-index: 20;
+	.img {
+		width: 272px;
+		height: 337px;
+		line-height: 50px;
+		position: fixed;
+		z-index: 22;
+		overflow:hidden;
+		top: 50%;
+		left: 50%;
+		margin-top: -168px;
+		margin-left: -136px;
+		display: none;
+		img{
+			width: 272px;
+		}
+	}
+	.black{
+		filter:alpha(opacity=80);
+		opacity: 0.8;
+		position: fixed;
+		z-index: 21;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		background-color: #000;
+		display: none;
+	}
+}
+	

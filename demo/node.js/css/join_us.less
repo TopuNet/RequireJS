@@ -1,0 +1,81 @@
+/*
+	白梦超
+	20160421
+ */
+
+@import "common.less";
+
+body.join_us {
+	section.banner {
+		min-width: @content_width;
+		height: 548px;
+		background: url(/images/join_us_banner.jpg) center center no-repeat;
+	}	
+	section.bot_pic {
+		min-width: @content_width;
+		height: 267px;
+		margin-bottom: 4px;
+		background: url(/images/join_us_botpic.jpg) center center no-repeat;
+	}
+	section.center {
+		min-width: @content_width;
+		background: @color_fff;
+		section.auto {
+			width: @content_width;
+			margin: 0 auto;
+			padding: 70px 0;
+			div.left {
+				float: left;
+				margin-left: 100px;
+			}
+			div.right {
+				float: right;
+				margin-right: 100px;
+			}
+			div.content {
+				width: 500px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				dl {
+					height: 74px;
+					width: 100%;
+					margin-bottom: 24px;
+					dt {
+						width: 74px;
+						height: 74px;
+						line-height: 74px;
+						float: left;
+						text-align: center;
+						color: @color_fff;
+						background: @bg_licolor_hover;
+						font-size: 24px;
+						font-weight: bold;
+					}
+					dd {
+						width: 400px;
+						float: right;
+					}
+					dd.content_dd1 {
+						height: 32px;
+						line-height: 32px;
+						font-size: 18px;
+						color: @bg_foot;
+						margin-top: 8px;
+						font-weight: bold;
+					}
+					dd.content_dd1 {
+						height: 32px;
+						line-height: 32px;
+						font-size: 16px;
+					}
+				}
+				p {
+					line-height: 26px;
+				}
+			}
+			&:after {
+				.clear();
+			}
+		}
+	}
+}

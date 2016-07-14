@@ -1,0 +1,59 @@
+/*
+	马升苑
+	20160426
+	常见问题
+ */
+
+@import "common.less";
+
+body.problem{
+	min-width: @content_width;
+	section.cont{
+		width: 1160px;
+		margin: 0 auto;
+		padding: 20px 0px 80px;
+		.blockbox{
+			overflow: hidden;
+			position: relative;
+			.bbox{
+				overflow: hidden;
+				clear: both;
+				position: relative;
+				top: -1px;
+			}
+			.block{
+				width: 525px;
+				border-top: 1px #e0dfdf solid;
+				padding: 60px 0px 70px;
+				float: left;
+				.num{
+					float: left;
+					color: @bg_top_color;
+					font-size: 30px;
+					line-height: 76px;
+				}
+				.title{
+					float: left;
+					font-size: 20px;
+					color: #8a8786;
+					margin-bottom: 25px;
+					width: 430px;
+					margin-top: 25px;
+					line-height: 30px;
+					margin-left: 20px;
+				}
+				.text{
+					font-size: 16px;
+					width: 430px;
+					clear: both;
+					color: #666160;
+					line-height: 26px;
+					margin-left: 90px;
+				}
+			}
+			.right{
+				margin-left: 110px;
+			}
+		}
+	}
+}
