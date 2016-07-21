@@ -1,0 +1,22 @@
+{
+  "name": "TopuNet-RequireJS",
+  "version": "1.0.3",
+  "description": "RequireJS 开发及部署试验",
+  "main": "fis-conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TopuNet/RequireJS.git"
+  },
+  "keywords": [
+    "topu.net"
+  ],
+  "author": "Topu.net",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TopuNet/RequireJS/issues"
+  },
+  "homepage": "https://github.com/TopuNet/RequireJS#readme"
+}

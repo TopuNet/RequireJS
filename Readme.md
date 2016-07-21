@@ -1,8 +1,13 @@
-# RequireJS 开发及部署试验 v1.0.2
+# RequireJS 开发及部署试验 v1.0.3
 ###RequireJS 开发及部署试验
 
 更新日志：
 -------------
+
+v1.0.3
+
+    1. 在dist文件夹中，增加package.json
+    2. 将dist发布到npm：TopuNet-RequireJS
 
 v1.0.2
 
