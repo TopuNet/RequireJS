@@ -1,29 +1,5 @@
-# RequireJS 开发及部署试验 v1.0.3
-###RequireJS 开发及部署试验
-
-更新日志：
--------------
-
-v1.0.3
-
-    1. 在dist文件夹中，增加package.json
-    2. 将dist发布到npm：TopuNet-RequireJS
-
-v1.0.2
-
-    解决之前版本的入口文件main.js的缓存问题：
-
-    		1) 后端渲染页面时，需要给data-main增加地址栏参数。如：
-    		<script data-main="/widget/main.js?v=0714" src="/inc/require.js" id="script_page" page="index"></script>
-
-    		2) 0714可在后端做全局变量，方便全局修改。
-    		如demo中，在 /handle/config中定义全局变量js_version，然后在app.js中将/handle/config.js_version赋值给app.locals.js_version，供视图使用。
-
-v1.0.1
-
-    1. 立项并完成整体流程，demo中只有“首页”和“联系我们”可以看。
-    2. 因为最后要用fis3构建打包上线，所以解决的难点集中在 模块化文件打包、加hash码 的过程中。最后的解决方案也是剑走偏锋，利用了fis3的内容签入功能，在不改变开发环境测试流程 和 上线release后不修改data-main入口的情况下，最小功耗的解决问题。
-    3. 过程中，也尝试了fis3-hook-amd插件打包，不是很理想。因为项目是node的，后端代码也会受影响。
+# RequireJS 开发及部署试验 v1.0.5
+###安装：npm install TopuNet-RequireJS
 
 文件结构：
 -------------
@@ -103,3 +79,33 @@ v1.0.1
         	require(["aio_5a0ac31"], function() { 
 
         其中 5a0ac31 为最新版本aio的hash码。
+
+
+
+更新日志：
+-------------
+
+v1.0.5
+
+    1. 修改fis-conf.js
+
+v1.0.3
+
+    1. 在dist文件夹中，增加package.json
+    2. 将dist发布到npm：TopuNet-RequireJS
+
+v1.0.2
+
+    解决之前版本的入口文件main.js的缓存问题：
+
+    		1) 后端渲染页面时，需要给data-main增加地址栏参数。如：
+    		<script data-main="/widget/main.js?v=0714" src="/inc/require.js" id="script_page" page="index"></script>
+
+    		2) 0714可在后端做全局变量，方便全局修改。
+    		如demo中，在 /handle/config中定义全局变量js_version，然后在app.js中将/handle/config.js_version赋值给app.locals.js_version，供视图使用。
+
+v1.0.1
+
+    1. 立项并完成整体流程，demo中只有“首页”和“联系我们”可以看。
+    2. 因为最后要用fis3构建打包上线，所以解决的难点集中在 模块化文件打包、加hash码 的过程中。最后的解决方案也是剑走偏锋，利用了fis3的内容签入功能，在不改变开发环境测试流程 和 上线release后不修改data-main入口的情况下，最小功耗的解决问题。
+    3. 过程中，也尝试了fis3-hook-amd插件打包，不是很理想。因为项目是node的，后端代码也会受影响。
