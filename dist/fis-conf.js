@@ -17,6 +17,10 @@ fis.match('/widget/**', {
     release: false
 });
 
+// fis.match('/widget/main.js', {
+//     release: '/static$0'
+// });
+
 fis.match('/widget/aio.js', {
     release: '/static$0',
     useHash: true
@@ -33,9 +37,14 @@ fis.match('/images/**.png', {
 // Global end
 
 // Publish start
+fis.media('pub').match('/inc/**',{
+    url: '$0',
+    domain: 'http://static.topu.net/f'
+});
+
 fis.media('pub').match('{/css/**,/images/**,/widget/**}', {
     url: '$0',
-    domain: 'http://static.topu.net'
+    domain: 'http://static.topu.net/f/static'
 });
 
 fis.media('pub').match('/widget/**.js', {

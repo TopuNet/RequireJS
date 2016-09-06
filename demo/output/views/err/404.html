@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../comm/head.html%>
+    <link href="http://static.topu.net/f/static/css/404_16ad353.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="body404">
+    <!--页面头部结构-->
+  <%include ../comm/top.html%>
+    
+    <section class="main min-content" role="main">
+        <h1></h1>
+        <div class="button_1"></div>
+        <div class="button_2"></div>
+    </section>
+
+    <!--页面底部foot样式结构-->
+    <%include ../comm/footer.html%>
+    <script type="text/javascript" src="/inc/jquery.min.js"></script>
+    <script type="text/javascript" src="/jq/functions.js"></script>
+    <script type="text/javascript" src="/jq/UserControl.js"></script>
+    <script type="text/javascript" src="/jq/404.js"></script>
+            <script type="text/javascript">
+            $(function() {
+                p404.init("<%=err%>");
+            });
+            </script>
+   
+</body>
+</html>

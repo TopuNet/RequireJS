@@ -1,0 +1,109 @@
+/*
+	高京
+	2016-04-22
+	首页ie9以下样式表
+*/
+
+@import "../css/common.less";
+// 首页
+body.index {
+    //  banner 部分样式
+    section.banner {
+        div.img_1.show,div.img_4.show {
+            display: none;
+            .transform(translateY(0));
+            filter: none;
+        }
+         div.img_2.show,div.img_3.show {
+            display: none;
+            .transform(translateX(0));
+            filter: none;
+        }
+        div.content.show {
+            display: none;
+            filter: none;
+        }
+    }
+    //  互联网营销部分样式
+    section.marketing {
+       
+    	div.content.show {
+            display: none;
+            .transform(translateX(0))!important;
+            filter: none;
+        }
+        div.content {
+            display: none;
+            filter: none;
+        }
+       
+        div.img_1.show {
+            display: none;
+            .transform(translateX(0))!important;
+            filter: none;
+        }
+        div.img_1 {
+            display: none;
+            filter: none;
+        }
+    }
+    //  病毒裂变传播方式样式
+    section.spread {
+    	div.map.show {
+    		display: none;
+            filter: none;
+    	}
+    	div.phone_left.show {
+    		.transform(translateX(0))!important;
+    		display: none;
+            filter: none;
+    	}
+    	div.phone_right.show {
+    		.transform(translateX(0))!important;
+    		display: none;
+            filter: none;
+    	}
+    	div.phone_bot.show {
+    		.transform(translateY(0px))!important;
+    		display: none; 	
+            filter: none;
+    	}
+    	li.phone.show {
+    		display: none;
+            filter: none;
+    	}
+        li.phone {
+            display: none;
+            filter: none;
+            opacity: 1;
+        }
+    	div.content.show {
+    		display: none;
+                        filter: none;
+    	}     
+    }
+    //  底部统计图部分样式
+    section.data {
+    	div.zuobiao.show {
+    		display: none;
+            filter: none;
+    	}
+    	div.color.show {
+    		width: 0px;
+    	}
+    	div.left.show {
+    		display: none;
+    		.transform(translateY(0px));
+            filter: none;
+    	}
+    	div.right.show {
+    		display: none;
+    		 .transform(translateX(0px));
+             filter: none;
+    	}
+    	div.content.show {
+    		display: none;
+            filter: none;
+    	}
+    }
+}
