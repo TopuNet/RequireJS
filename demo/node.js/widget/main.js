@@ -1,3 +1,4 @@
+
 requirejs.config({
     // baseUrl: '/widget',
     // paths: {
@@ -10,8 +11,4 @@ requirejs.config({
     //     }
 });
 
-__inline('fis_inline.js')
-
-function __inline() {
-    require(["app"]);
-}
+require(["app"]);

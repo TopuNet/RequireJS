@@ -17,17 +17,9 @@ fis.match('/widget/**', {
     release: false
 });
 
-fis.match('/widget/main.js', {
-    release: '/static$0'
-});
-
 fis.match('/widget/aio.js', {
     release: '/static$0',
     useHash: true
-});
-
-fis.match('/inc/**', {
-    release: '/static$0'
 });
 
 fis.match('/images/**', {
@@ -41,7 +33,7 @@ fis.match('/images/**.png', {
 // Global end
 
 // Publish start
-fis.media('pub').match('{/css/**,/inc/**,/images/**,/widget/**}', {
+fis.media('pub').match('{/css/**,/images/**,/widget/**}', {
     url: '$0',
     domain: 'http://static.topu.net'
 });
