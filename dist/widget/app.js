@@ -14,5 +14,5 @@ define(["app/UserControl", "lib/jquery.min"], function() {
                 $obj.init();
             });
             break;
-    };
+    }
 });
