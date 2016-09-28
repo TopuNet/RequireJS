@@ -1,4 +1,4 @@
-# RequireJS 开发及部署试验 v1.1.3
+# RequireJS 开发及部署试验 v1.1.4
 ###安装：npm install TopuNet-RequireJS
 
 文件结构：
@@ -75,6 +75,10 @@
 
 更新日志：
 -------------
+v1.1.4
+
+    1. 修改fis3的/lib/compile.js模块。之前对qll-bg的定位有问题
+    
 v1.1.3
 
     1. 通过jshint验证

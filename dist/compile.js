@@ -492,7 +492,7 @@ function extHtml(content, callback, file) {
         m = m.replace(/(qll-img=\s*)('[^']+'|"[^"]+"|[^\s\/>]+)/ig, function(_, prefix, value) {
             return prefix + map.uri.wrap(value);
         });
-        m = m.replace(/(qll-bg=\s?"\s?url\()('[^']+'|"[^"]+"|[^\s\/>]+)(.*")/ig, function(_, prefix, value, overfix) {
+        m = m.replace(/(qll-bg=\s?".*url\()('[^']+'|"[^"]+"|[^\s\/>]+)(.*")/ig, function(_, prefix, value, overfix) {
             return prefix + map.uri.wrap(value) + overfix;
         });
         return m;
