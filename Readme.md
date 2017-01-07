@@ -1,4 +1,4 @@
-# RequireJS 开发及部署试验 v1.1.4
+# RequireJS 开发及部署试验 v1.1.5
 ###安装：npm install TopuNet-RequireJS
 
 文件结构：
@@ -75,6 +75,10 @@
 
 更新日志：
 -------------
+v1.1.5
+
+    1. 修改fis3的/lib/compile.js模块。之前在release时会有很多warning，可能是fis有更新造成的，在最新的fis的compile.js模板的基础上重新做了修改。
+    
 v1.1.4
 
     1. 修改fis3的/lib/compile.js模块。之前对qll-bg的定位有问题
