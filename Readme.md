@@ -1,5 +1,5 @@
 # RequireJS 开发及部署试验 v1.1.5
-###安装：npm install TopuNet-RequireJS
+### 安装：npm install TopuNet-RequireJS
 
 文件结构：
 -------------
