@@ -60,12 +60,12 @@
 
 6. 开发完成后，上线前：
 
-		1) node.js cmd 进入/widget/ 执行：node r.js -o build.js
+		1) node.js cmd 进入项目根目录 执行：node widget/r.js -o widget/build.js
 		此命令可从/widget/app.js 开始，将所有引用到的模块打包合并
 		build.js 为打包配置文件，具体可参考：https://github.com/requirejs/r.js/blob/master/build/example.build.js
 		执行完成后，将会生成打包文件：/widget/aio.js
 
-    	2) 返回到根目录执行：fis3 release [test|pub] [-c] -d ../output
+    	2) 执行：fis3 release [test|pub] [-c] -d ../output
         release后，/widget/中只有一个文件，aio_hash.js。
 
         * test|pub为media可选项，区别如下：
@@ -87,7 +87,7 @@
 			1) /app.js内含有maxAge的设置，且在服务器端和本地端分别使用了两个值。
 			2) node端程序上传时，需要删除/app.js 重上传操作。
 		所以：
-			fis忽略掉/app.js，首次fis release时，需要手动copy到release文件夹，并对maxAge进行修改。
+			fis忽略掉/app.js，首次fis release时，需要将/app.js手动copy到release文件夹，并对maxAge进行修改。
 			之后/app.js如有修改，也需手动copy，并再次修改maxAge。
 
 更新日志：
