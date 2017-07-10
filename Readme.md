@@ -57,9 +57,11 @@
 
 5. 开发过程中，本地可以直接测试。
 
-6. 开发完成后，上线前：
+6. 新安装或更新的fis3需要进行处理：[传送门————对fis3/lib/compile.js进行修改，满足日常工作项目中的发布要求](https://github.com/TopuNet/fis3.compile.js)
 
-		1) 新安装或更新的fis3需要进行处理：[传送门————对fis3/lib/compile.js进行修改，满足日常工作项目中的发布要求](https://github.com/TopuNet/fis3.compile.js)
+7. 开发完成后，上线前：
+
+		1) 
 
 		2) node.js cmd 进入项目根目录 执行：node widget/r.js -o widget/build.js
 		此命令可从/widget/app.js 开始，将所有引用到的模块打包合并
@@ -80,7 +82,7 @@
 
         * -c 为可选项，代表清除缓存。首次release 和 切换项目时 推荐使用。
 
-7. node端注意：
+8. node端注意：
 		
 		因为：
 			1) /app.js内含有maxAge的设置，且在服务器端和本地端分别使用了两个值。
@@ -94,8 +96,8 @@
 v1.2.1
 
 	1. 修改/fis-conf.js。
-		* 增加media：test，具体说明见 开发流程.6
-		* 增加忽略项 server.log（fis server生成文件）和/app.js（具体说明见 开发流程.7）
+		* 增加media：test，具体说明见 开发流程.7
+		* 增加忽略项 server.log（fis server生成文件）和/app.js（具体说明见 开发流程.8）
 		* 暂取消js的混淆压缩插件 和 png压缩插件，待寻求替代方案
 	2. 移除fis3的/lib/compile.js，增加该文件的github传送门，具体说明见 开发流程.6
 
