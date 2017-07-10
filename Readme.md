@@ -9,7 +9,6 @@
 4. 第三方类库（如jquery、zepto以及公司内部开发的功能性插件等）放入/widget/lib/中
 5. 小型功能模块（如window_resize、goto_top等）放入/widget/modules/中
 6. /dist/fis-conf.js 放入项目文件夹根目录。可根据项目需要进行修改。
-7. 处理fis3：[传送门：对fis3/lib/compile.js进行修改，满足日常工作项目中的发布要求](https://github.com/TopuNet/fis3.compile.js)
 
 开发流程：
 -------------
@@ -60,12 +59,14 @@
 
 6. 开发完成后，上线前：
 
-		1) node.js cmd 进入项目根目录 执行：node widget/r.js -o widget/build.js
+		1) 新安装或更新的fis3需要进行处理：[传送门————对fis3/lib/compile.js进行修改，满足日常工作项目中的发布要求](https://github.com/TopuNet/fis3.compile.js)
+
+		2) node.js cmd 进入项目根目录 执行：node widget/r.js -o widget/build.js
 		此命令可从/widget/app.js 开始，将所有引用到的模块打包合并
 		build.js 为打包配置文件，具体可参考：https://github.com/requirejs/r.js/blob/master/build/example.build.js
 		执行完成后，将会生成打包文件：/widget/aio.js
 
-    	2) 执行：fis3 release [test|pub] [-c] -d ../output
+    	3) 执行：fis3 release [test|pub] [-c] -d ../output
         release后，/widget/中只有一个文件，aio_hash.js。
 
         * test|pub为media可选项，区别如下：
@@ -78,8 +79,6 @@
         	** fis测试完成，使用pub release，发布上线
 
         * -c 为可选项，代表清除缓存。首次release 和 切换项目时 推荐使用。
-
-
 
 7. node端注意：
 		
@@ -98,7 +97,7 @@ v1.2.1
 		* 增加media：test，具体说明见 开发流程.6
 		* 增加忽略项 server.log（fis server生成文件）和/app.js（具体说明见 开发流程.7）
 		* 暂取消js的混淆压缩插件 和 png压缩插件，待寻求替代方案
-	2. 移除fis3的/lib/compile.js，增加该文件的github传送门
+	2. 移除fis3的/lib/compile.js，增加该文件的github传送门，具体说明见 开发流程.6
 
 v1.1.5
 
