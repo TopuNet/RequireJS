@@ -1,4 +1,4 @@
-# RequireJS 开发及部署试验 v1.1.5
+# RequireJS + fis3 开发及部署流程 v1.2.1
 ### 安装：npm install TopuNet-RequireJS
 
 文件结构：
@@ -8,10 +8,8 @@
 3. 页面配套js（一个页面文件最好有一个配套的js文件入口模块）和 UserControl.js 放入/widget/app/中
 4. 第三方类库（如jquery、zepto以及公司内部开发的功能性插件等）放入/widget/lib/中
 5. 小型功能模块（如window_resize、goto_top等）放入/widget/modules/中
-6. /dist/fis-conf.js 放入项目文件夹根目录，覆盖之前版本
-7. /dist/compile.js 放入全局的fis3模块的lib中，覆盖原先文件。
-	如：C:\Users\Administrator\AppData\Roaming\npm\node_modules\fis3\lib
-	在node.js中运行fis3 -v，可以显示安装目录
+6. /dist/fis-conf.js 放入项目文件夹根目录。可根据项目需要进行修改。
+7. 处理fis3：[传送门：对fis3/lib/compile.js进行修改，满足日常工作项目中的发布要求](https://github.com/TopuNet/fis3.compile.js)
 
 开发流程：
 -------------
@@ -67,14 +65,41 @@
 		build.js 为打包配置文件，具体可参考：https://github.com/requirejs/r.js/blob/master/build/example.build.js
 		执行完成后，将会生成打包文件：/widget/aio.js
 
-    	2) 返回到根目录执行：fis3 release [pub] -c -d ../output
-        pub为可选项，本地release测试不要pub，本地测试完成、上线前release需要。
-        区别为静态资源是否带域名前缀（利于优化和便于CDN）和是否对js和css文件进行压缩，域名前缀在fis-conf.js中修改。
+    	2) 返回到根目录执行：fis3 release [test|pub] [-c] -d ../output
         release后，/widget/中只有一个文件，aio_hash.js。
 
+        * test|pub为media可选项，区别如下：
+        	** 无media时：不对js、css、html进行混淆压缩；不对资源定位加域名前缀。
+        	** test时：js、png、css、html进行混淆压缩————插件级（目前js混淆压缩的插件uglify-js和png压缩的插件png-compressor使用时有一些问题，尚待解决，暂取消）
+        	** pub时：test基础上，对资源定位加域名前缀。域名值在fis-conf.js中修改
+        * 最佳体验：
+        	** 开发完成，进行fis测试，使用test release
+        	** 如有问题需要查看代码时，不使用media release
+        	** fis测试完成，使用pub release，发布上线
+
+        * -c 为可选项，代表清除缓存。首次release 和 切换项目时 推荐使用。
+
+
+
+7. node端注意：
+		
+		因为：
+			1) /app.js内含有maxAge的设置，且在服务器端和本地端分别使用了两个值。
+			2) node端程序上传时，需要删除/app.js 重上传操作。
+		所以：
+			fis忽略掉/app.js，首次fis release时，需要手动copy到release文件夹，并对maxAge进行修改。
+			之后/app.js如有修改，也需手动copy，并再次修改maxAge。
 
 更新日志：
 -------------
+v1.1.6
+
+	1. 修改/fis-conf.js。
+		* 增加media：test，具体说明见 开发流程.6
+		* 增加忽略项 server.log（fis server生成文件）和/app.js（具体说明见 开发流程.7）
+		* 暂取消js的混淆压缩插件 和 png压缩插件，待寻求替代方案
+	2. 移除fis3的/lib/compile.js，增加该文件的github传送门
+
 v1.1.5
 
     1. 修改fis3的/lib/compile.js模块。之前在release时会有很多warning，可能是fis有更新造成的，在最新的fis的compile.js模板的基础上重新做了修改。
