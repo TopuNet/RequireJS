@@ -1,4 +1,4 @@
-# RequireJS + fis3 开发及部署流程 v1.2.1
+# RequireJS + fis3 开发及部署流程 v1.2.2
 ### 安装：npm install TopuNet-RequireJS
 
 文件结构：
@@ -93,6 +93,12 @@
 
 更新日志：
 -------------
+v1.2.2
+
+	修改/fis-conf.js。
+		* 配合.net项目，增加忽略项 '**.csproj**','**eb.*.config'
+		* 增加忽略项 '.jshintrc'
+
 v1.2.1
 
 	1. 修改/fis-conf.js。
