@@ -1,6 +1,6 @@
 {
   "name": "TopuNet-RequireJS",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "RequireJS 开发及部署试验",
   "main": "fis-conf.js",
   "scripts": {

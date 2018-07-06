@@ -1,4 +1,4 @@
-# RequireJS + fis3 开发及部署流程 v1.2.2
+# RequireJS + fis3 开发及部署流程 v1.2.3
 ### 安装：npm install TopuNet-RequireJS
 
 文件结构：
@@ -93,6 +93,11 @@
 
 更新日志：
 -------------
+v1.2.3
+
+	修改/fis-conf.js。
+		* 配合node项目，对app_maxAge分env release
+
 v1.2.2
 
 	修改/fis-conf.js。
